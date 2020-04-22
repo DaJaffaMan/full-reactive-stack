@@ -1,4 +1,4 @@
-# Full Reactive Stack [![Build Status](https://travis-ci.org/mechero/full-reactive-stack.svg?branch=master)](https://travis-ci.org/mechero/full-reactive-stack)
+# Full Reactive Stack [![Build Status](https://travis-ci.com/DaJaffaMan/full-reactive-stack.svg?branch=feature%2Fdelete-quote-solution)](https://travis-ci.com/DaJaffaMan/full-reactive-stack)
 
 This repository contains backend and frontend projects that make use of **Reactive Web** patterns,
 as explained in the [Full Reactive Stack](https://thepracticaldeveloper.com/full-reactive-stack)

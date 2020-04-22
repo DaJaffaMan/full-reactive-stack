@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - oraclejdk8
+  - openjdk8
 before_script: 
   cd spring-boot-reactive-web
 addons:
@@ -11,3 +11,4 @@ addons:
       - develop
 script:
   - mvn clean install sonar:sonar
+  - mvn test

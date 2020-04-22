@@ -11,7 +11,6 @@ export class QuoteReactiveService {
   quotes: Quote[] = new Array();
   url: string = 'http://localhost:8080/quotes-reactive';
   urlPaged: string = 'http://localhost:8080/quotes-reactive-paged';
-  urlDelete: string = 'http://localhost:8080/quote-reactive-delete';
 
   getQuoteStream(page?: number, size?: number): Observable<Array<Quote>> {
     this.quotes = new Array();
