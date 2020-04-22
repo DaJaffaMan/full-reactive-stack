@@ -18,8 +18,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
+import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
@@ -89,5 +92,21 @@ public class QuoteBlockingControllerIntegrationTest {
         assertThat(receivedQuoteList.getBody()).isEqualTo(
                 Lists.newArrayList(new Quote("1", "mock-book", "Quote 1"),
                         new Quote("2", "mock-book", "Quote 2")));
+    }
+
+    @Test
+    public void deleteRequest() {
+        // given
+        given(quoteMongoBlockingRepository.deleteQuoteById("UUID")).willReturn(emptyList());
+
+        // when
+        ResponseEntity<Collection> receivedNumberOfSuccessfullyDeletedQuotes = restTemplate.exchange(
+                serverBaseUrl + "/quote-blocking-delete?id=UUID",
+                HttpMethod.DELETE, null, new ParameterizedTypeReference<Collection>() {
+                });
+
+        // then
+        assertThat(receivedNumberOfSuccessfullyDeletedQuotes.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(receivedNumberOfSuccessfullyDeletedQuotes.getBody()).isEqualTo(emptyList());
     }
 }
