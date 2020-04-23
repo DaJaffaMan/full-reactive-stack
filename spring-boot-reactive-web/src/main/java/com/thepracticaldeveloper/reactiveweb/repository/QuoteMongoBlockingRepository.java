@@ -13,6 +13,5 @@ public interface QuoteMongoBlockingRepository extends CrudRepository<Quote, Stri
     @Query("{ id: { $exists: true }}")
     List<Quote> retrieveAllQuotesPaged(final Pageable page);
 
-    @Query("{ id: { $exists: true }}")
     Collection<Quote> deleteQuoteById(final String id);
 }

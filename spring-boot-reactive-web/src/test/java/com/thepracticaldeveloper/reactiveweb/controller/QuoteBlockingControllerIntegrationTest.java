@@ -101,7 +101,7 @@ public class QuoteBlockingControllerIntegrationTest {
 
         // when
         ResponseEntity<Collection> receivedNumberOfSuccessfullyDeletedQuotes = restTemplate.exchange(
-                serverBaseUrl + "/quote-blocking-delete?id=UUID",
+                serverBaseUrl + "/quote-blocking/UUID",
                 HttpMethod.DELETE, null, new ParameterizedTypeReference<Collection>() {
                 });
 
